@@ -1,0 +1,25 @@
+<core:FragmentDefinition controllerName="com.lab2dev.btpexperience.controller.HelloDialog"
+  xmlns:m="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:l="sap.ui.layout">
+  <m:Dialog id="helloDialog" title="Dados do Pacote">
+
+    <l:VerticalLayout class="sapUiContentPadding equalColumns" width="auto">
+      <m:Label text="Nome" labelFor="productInput" />
+      <m:Input id="n" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
+      </m:Input>
+      <m:Label text="Preço" labelFor="productInput" />
+      <m:Input id="j" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
+      </m:Input>
+      <m:Label text="Convites" labelFor="productInput" />
+      <m:Input id="f" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
+      </m:Input>
+      <m:Label text="Stand" labelFor="productInput" />
+      <m:Input id="g" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
+      </m:Input>
+      <m:ComboBox width="300px" showClearIcon="true" items="{/grupoMajoritarioModel}">
+        <core:Item key="{id}" text="{grupo}" />
+      </m:ComboBox>
+    </l:VerticalLayout>
+  </m:Dialog>
+</core:FragmentDefinition>
