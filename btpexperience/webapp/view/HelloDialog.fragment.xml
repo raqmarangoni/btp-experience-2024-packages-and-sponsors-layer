@@ -1,25 +1,42 @@
-<core:FragmentDefinition controllerName="com.lab2dev.btpexperience.controller.HelloDialog"
+<core:FragmentDefinition controllerName="com.lab2dev.btpexperience.controller.Home"
   xmlns:m="sap.m"
-  xmlns:core="sap.ui.core"
-  xmlns:l="sap.ui.layout">
-  <m:Dialog id="helloDialog" title="Dados do Pacote">
-
-    <l:VerticalLayout class="sapUiContentPadding equalColumns" width="auto">
-      <m:Label text="Nome" labelFor="productInput" />
-      <m:Input id="n" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
-      </m:Input>
-      <m:Label text="Preço" labelFor="productInput" />
-      <m:Input id="j" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
-      </m:Input>
-      <m:Label text="Convites" labelFor="productInput" />
-      <m:Input id="f" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
-      </m:Input>
-      <m:Label text="Stand" labelFor="productInput" />
-      <m:Input id="g" placeholder="Texto" showSuggestion="true" showValueHelp="false" suggestionItems="Texto">
-      </m:Input>
-      <m:ComboBox width="300px" showClearIcon="true" items="{/grupoMajoritarioModel}">
-        <core:Item key="{id}" text="{grupo}" />
-      </m:ComboBox>
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <m:Dialog id="packageFormDialog" showHeader="true" title="Dados do Pacote">
+    <l:VerticalLayout class="sapUiContentPadding" width="auto">
+      <m:Label id="idInputNome" text="Nome" required="true" />
+      <m:Input value="{packageForm>/Nome}" />
+      <m:Label id="idInputConvites" text="Convites" required="true" />
+      <m:Input value="{packageForm>/Convite}" placeholder="Número" />
+      <m:Label id="idSelectGrupo" text="Grupo Majoritário" required="true" />
+      <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
+        <m:items>
+          <core:Item text="Selecione o Grupo"/>
+          <core:Item key="A" text="A"/>
+          <core:Item key="B" text="B"/>
+          <core:Item key="C" text="C"/>
+        </m:items>
+      </m:Select>
+    </l:VerticalLayout>
+    <l:VerticalLayout class="sapUiContentPadding" width="auto">
+      <m:Label id="idInputPreco" text="Preço" required="true" />
+      <m:Input value="{packageForm>/Preco}" placeholder="Texto" />
+      <m:Label id="idSelectStand" text="Stand" required="true" />
+      <m:Select selectedKey="{packageForm>/Stand}">
+        <m:items>
+          <core:Item text="Selecione o tamanho"/>
+          <core:Item key="Grande" text="Grande"/>
+          <core:Item key="Medio" text="Médio"/>
+          <core:Item key="Pequeno" text="Pequeno"/>
+        </m:items>
+      </m:Select>
+      <m:HBox class="" justifyContent="End">
+      <m:Label class="" />
+      <m:Button class="sapUiSmallMarginEnd" text="Salvar" press="onSendPackage" type="Emphasized" />
+        <m:Button text="Cancelar" press="onCancelChanges" type="Ghost" />
+      </m:HBox>
+      <l:VerticalLayout ></l:VerticalLayout>
     </l:VerticalLayout>
   </m:Dialog>
 </core:FragmentDefinition>
