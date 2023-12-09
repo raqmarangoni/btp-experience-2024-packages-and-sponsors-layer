@@ -67,10 +67,7 @@ sap.ui.define([
                 this.getView().setModel(oPackageModel, "packageInfo");
             },
 
-            onPress: function () {
-                const message = 'pressed';
-                MessageToast.show(message);
-            },
+           
 
             onOpenDialog() {
                 this.pDialog ??= this.loadFragment({
@@ -78,11 +75,11 @@ sap.ui.define([
                     controller: this
                 });
 
+                const oPlaceholderDefaultModel = new JSONModel({ Nome: "", Preco: "", Convite: "", GrupoMajoritario: "", Stand: "" })
+
                 this.pDialog.then(oDialog => {
                     this.getView().insertDependent(oDialog)
-                    const oData = this.getView().getModel("packageInfo").getData()
-                    const oModel = new JSONModel(oData)
-                    this.getView().setModel(oModel, "packageForm")
+                    this.getView().setModel(oPlaceholderDefaultModel, "packageForm")
                     oDialog.open()
                 });
             },
@@ -92,15 +89,16 @@ sap.ui.define([
                 oModel.setData(oData);
                 this.byId("packageFormDialog").close();
             },
-            onCancelChanges: function () {
-                const oOriginalData = this.getView().getModel("packageInfo").getData();
-                const oModel = new JSONModel(oOriginalData);
-                this.getView().setModel(oModel, "packageForm");
-
-                // Fechar o diálogo, se estiver aberto
+            onCancelChanges: function() {
+            
+                const oModel = this.getView().getModel("packageForm");
+                const oData = oModel.getData();
+            
+                oModel.setData(oData);
+            
                 if (this.byId("packageFormDialog").isOpen()) {
                     this.byId("packageFormDialog").close();
                 }
-            },
+            },            
         });
     });
