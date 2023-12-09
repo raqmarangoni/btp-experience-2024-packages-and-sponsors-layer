@@ -3,40 +3,55 @@
   xmlns:l="sap.ui.layout"
   xmlns:f="sap.ui.layout.form"
   xmlns:core="sap.ui.core">
-  <m:Dialog id="packageFormDialog" showHeader="true" title="Dados do Pacote">
-    <l:VerticalLayout class="sapUiContentPadding" width="auto">
-      <m:Label id="idInputNome" text="Nome" required="true" />
-      <m:Input value="{packageForm>/Nome}" />
-      <m:Label id="idInputConvites" text="Convites" required="true" />
-      <m:Input value="{packageForm>/Convite}" placeholder="Número" />
-      <m:Label id="idSelectGrupo" text="Grupo Majoritário" required="true" />
-      <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
-        <m:items>
-          <core:Item text="Selecione o Grupo"/>
-          <core:Item key="A" text="A"/>
-          <core:Item key="B" text="B"/>
-          <core:Item key="C" text="C"/>
-        </m:items>
-      </m:Select>
-    </l:VerticalLayout>
-    <l:VerticalLayout class="sapUiContentPadding" width="auto">
-      <m:Label id="idInputPreco" text="Preço" required="true" />
-      <m:Input value="{packageForm>/Preco}" placeholder="Texto" />
-      <m:Label id="idSelectStand" text="Stand" required="true" />
-      <m:Select selectedKey="{packageForm>/Stand}">
-        <m:items>
-          <core:Item text="Selecione o tamanho"/>
-          <core:Item key="Grande" text="Grande"/>
-          <core:Item key="Medio" text="Médio"/>
-          <core:Item key="Pequeno" text="Pequeno"/>
-        </m:items>
-      </m:Select>
-      <m:HBox class="" justifyContent="End">
-      <m:Label class="" />
-      <m:Button class="sapUiSmallMarginEnd" text="Salvar" press="onSendPackage" type="Emphasized" />
-        <m:Button text="Cancelar" press="onCancelChanges" type="Ghost" />
-      </m:HBox>
-      <l:VerticalLayout ></l:VerticalLayout>
-    </l:VerticalLayout>
+  <m:Dialog id="packageFormDialog" showHeader="false" title="" class="">  
+  	<m:VBox class="sapUiSmallMargin">
+    <f:SimpleForm id="SimpleFormChange480_12120"
+			editable="true"
+			layout="ResponsiveGridLayout"
+      labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="true" >
+      <f:content>
+          <core:Title text="Dados do Pacote" ></core:Title>
+          <m:Label id="idInputNome" text="Nome" required="true" wrapping="true" />
+          <m:Input value="{packageForm>/Nome}" placeholder="Texto" class="sapUiSmallMarginBottom"/>
+          <m:Label id="idInputConvites" text="Convites" required="true" />
+          <m:Input value="{packageForm>/Convite}" placeholder="Texto" class="sapUiSmallMarginBottom"/>
+          <m:Label id="idSelectGrupo" text="Grupo Majoritário" required="true" />
+          <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
+            <m:items>
+              <core:Item text="Selecione o Grupo"/>
+              <core:Item key="A" text="A"/>
+              <core:Item key="B" text="B"/>
+              <core:Item key="C" text="C"/>
+            </m:items>
+          </m:Select>
+           <core:Title text="" ></core:Title>
+          <m:Label id="idInputPreco" text="Preço" required="true" />
+          <m:Input value="{packageForm>/Preco}" placeholder="Texto" class="sapUiSmallMarginBottom" />
+          <m:Label id="idSelectStand" text="Stand" required="true" />
+          <m:Select  selectedKey="{packageForm>/Stand}" class="sapUiSmallMarginBottom" wrapItemsText="true">
+            <m:items>
+              <core:Item text="Selecione o tamanho"/>
+              <core:Item key="Grande" text="Grande"/>
+              <core:Item key="Medio" text="Médio"/>
+              <core:Item key="Pequeno" text="Pequeno"/>
+            </m:items>
+          </m:Select>
+          <m:Button text="Salvar" press="onSendPackage" type="Emphasized" />
+          <m:Button text="Cancelar" press="onCancelChanges" type="Ghost" />
+      </f:content>
+    </f:SimpleForm>
+    </m:VBox>
   </m:Dialog>
 </core:FragmentDefinition>

@@ -21,7 +21,7 @@
                             </m:IconTabFilter>
                         </m:items>
                     </m:IconTabFilter>
-                    <m:IconTabFilter key="info" text="Administração">
+                    <m:IconTabFilter  key="Administração" text="Administração">
                         <m:items>
                             <m:IconTabFilter text="Evento">                      
                             </m:IconTabFilter>
@@ -29,7 +29,7 @@
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Sessões">                              
                             </m:IconTabFilter>
-							<m:IconTabFilter text="Empresas">                             
+														<m:IconTabFilter text="Empresas">                             
                             </m:IconTabFilter>
                             <m:IconTabFilter text="Pacotes">                              
                             </m:IconTabFilter>
@@ -105,7 +105,7 @@
 										<m:Text text="Tamanho: {packageInfo>/Stand}" wrapping="true"/>
 									</m:VBox>
 								</m:HBox>
-								<m:Button class="sapUiSmallMargin button" width="auto" type="Emphasized" text="Editar dados" press="onOpenDialog ">
+								<m:Button class="sapUiSmallMargin button" width="auto" type="Emphasized" text="Editar dados" press="onOpenDialog">
 									<m:layoutData>
 										<m:FlexItemData alignSelf="End" />
 									</m:layoutData>
@@ -120,7 +120,7 @@
 			<l:VerticalLayout class="sapUiContentPadding sapUiResponsiveContentPadding sapUiNoMargin" width="auto">
 				<m:Title class="" text="Patrocinadores com esse pacote" titleStyle="H4" />
 			</l:VerticalLayout>
-			<m:Panel width="auto" backgroundDesign="Transparent" class=" sapUiResponsiveContentPadding sapUiContentPadding">
+			<m:Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiContentPadding">
 				<f:GridList id="gridList" items="{/patrocinadores}">
 					<f:customLayout>
 						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(13rem, 1fr))" gridGap="1.0rem" />
