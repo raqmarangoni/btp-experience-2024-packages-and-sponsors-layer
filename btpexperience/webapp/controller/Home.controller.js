@@ -1,18 +1,18 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
-    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, MessageToast) {
+    function (Controller, JSONModel) {
         "use strict";
 
         return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
+
             onInit: function () {
-                const patrocinadoresModel = {
-                    patrocinadores: [
+                const sponsorsModel = {
+                    sponsors: [
                         {
                             Empresa: "Lab2Dev",
                             Estado: "São Paulo",
@@ -60,45 +60,45 @@ sap.ui.define([
                         },
                     ]
                 };
-                const oModel = new JSONModel(patrocinadoresModel);
+                const oModel = new JSONModel(sponsorsModel);
                 this.getView().setModel(oModel);
 
-                const oPackageModel = new JSONModel({ Nome: "Diamante", Preco: "10000,00", Convite: "15", GrupoMajoritario: "A", Stand: "Grande" })
-                this.getView().setModel(oPackageModel, "packageInfo");
+                const oPackageModel = new JSONModel({ Nome: "Diamante", Preco: "10000,00", Convite: "15", GrupoMajoritario: "A", Stand: "Grande" });
+                this.getView().setModel(oPackageModel, "packageFeatures");
             },
-
-           
 
             onOpenDialog() {
                 this.pDialog ??= this.loadFragment({
-                    name: "com.lab2dev.btpexperience.view.HelloDialog",
+                    name: "com.lab2dev.btpexperience.view.AdministrationPackageFormDialog",
                     controller: this
                 });
 
-                const oPlaceholderDefaultModel = new JSONModel({ Nome: "", Preco: "", Convite: "", GrupoMajoritario: "", Stand: "" })
+                const oPlaceholderDefaultModel = new JSONModel({ Nome: "", Preco: "", Convite: "", GrupoMajoritario: "", Stand: "" });
 
                 this.pDialog.then(oDialog => {
-                    this.getView().insertDependent(oDialog)
-                    this.getView().setModel(oPlaceholderDefaultModel, "packageForm")
-                    oDialog.open()
+                    this.getView().insertDependent(oDialog);
+                    this.getView().setModel(oPlaceholderDefaultModel, "packageForm");
+                    oDialog.open();
                 });
             },
+
             onSendPackage: function () {
-                const oData = this.getView().getModel("packageForm").getData()
-                const oModel = this.getView().getModel("packageInfo")
+                const oData = this.getView().getModel("packageForm").getData();
+                const oModel = this.getView().getModel("packageFeatures");
+
                 oModel.setData(oData);
                 this.byId("packageFormDialog").close();
             },
-            onCancelChanges: function() {
-            
+
+            onCancelChanges: function () {
                 const oModel = this.getView().getModel("packageForm");
                 const oData = oModel.getData();
-            
+
                 oModel.setData(oData);
-            
+
                 if (this.byId("packageFormDialog").isOpen()) {
                     this.byId("packageFormDialog").close();
-                }
-            },            
+                };
+            },
         });
     });
