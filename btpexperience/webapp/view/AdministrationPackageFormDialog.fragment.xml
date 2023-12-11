@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns:m="sap.m"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core">
+  <m:Dialog id="packageFormDialog" showHeader="false" class="administrationPackageDialog">
+    <m:content>
+      <m:VBox id="formContainer">
+        <f:SimpleForm id="SimpleFormChangeColumn_twoGroups234" editable="true" layout="ColumnLayout" title="Dados do Pacote" labelSpanXL="12" labelSpanL="12" labelSpanM="3" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsM="2" columnsL="2" columnsXL="2">
+          <f:content>
+            <m:Label text="Nome" />
+            <m:Input required="true" value="{packageForm>/Nome}" placeholder="Texto" />
+            <m:Label id="idInputConvites" text="Convites" required="true" />
+            <m:Input value="{packageForm>/Convite}" placeholder="Texto"/>
+            <m:Label id="idSelectGrupo" text="Grupo Majoritário" required="true" />
+            <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
+              <m:items>
+                <core:Item text="Selecione o Grupo"/>
+                <core:Item key="A" text="A"/>
+                <core:Item key="B" text="B"/>
+                <core:Item key="C" text="C"/>
+              </m:items>
+            </m:Select>
+            <m:Label id="idInputPreco" text="Preço" required="true" />
+            <m:Input value="{packageForm>/Preco}" placeholder="Texto" />
+            <m:Label id="idSelectStand" text="Stand" required="true" />
+            <m:Select selectedKey="{packageForm>/Stand}" wrapItemsText="true">
+              <m:items>
+                <core:Item text="Selecione o tamanho"/>
+                <core:Item key="Grande" text="Grande"/>
+                <core:Item key="Médio" text="Médio"/>
+                <core:Item key="Pequeno" text="Pequeno"/>
+              </m:items>
+            </m:Select>
+          </f:content>
+        </f:SimpleForm>
+      </m:VBox>
+    </m:content>
+    <m:footer>
+      <m:Toolbar>
+        <m:content>
+          <m:ToolbarSpacer />
+          <m:Button text="Salvar Alterações" press="onSendPackage" type="Emphasized" />
+          <m:Button text="Cancelar" press="onCancelChanges" type="Ghost" />
+        </m:content>
+      </m:Toolbar>
+    </m:footer>
+  </m:Dialog>
+</core:FragmentDefinition>
