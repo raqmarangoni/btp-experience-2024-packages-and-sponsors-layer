@@ -118,7 +118,7 @@
 			<m:Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiContentPadding">
 				<f:GridList id="gridList" items="{/sponsors}">
 					<f:customLayout>
-						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(13rem, 1fr))" gridGap="1.0rem" />
+						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(14rem, 1fr))" gridGap="1.0rem" />
 					</f:customLayout>
 					<f:GridListItem>
 						<m:VBox class="sapUiSmallMargin" wrap="Wrap" width="800px">
