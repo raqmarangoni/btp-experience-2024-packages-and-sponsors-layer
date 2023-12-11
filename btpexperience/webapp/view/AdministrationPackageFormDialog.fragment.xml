@@ -10,7 +10,7 @@
             <m:Label text="Nome" />
             <m:Input required="true" value="{packageForm>/Nome}" placeholder="Texto" />
             <m:Label id="idInputConvites" text="Convites" required="true" />
-            <m:Input value="{packageForm>/Convite}" placeholder="Texto"/>
+            <m:Input value="{packageForm>/Convite}" placeholder="Número"/>
             <m:Label id="idSelectGrupo" text="Grupo Majoritário" required="true" />
             <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
               <m:items>
@@ -21,7 +21,7 @@
               </m:items>
             </m:Select>
             <m:Label id="idInputPreco" text="Preço" required="true" />
-            <m:Input value="{packageForm>/Preco}" placeholder="Texto" />
+            <m:Input value="{packageForm>/Preco}" placeholder="R$ 00,00" />
             <m:Label id="idSelectStand" text="Stand" required="true" />
             <m:Select selectedKey="{packageForm>/Stand}" wrapItemsText="true">
               <m:items>
