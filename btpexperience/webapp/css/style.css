@@ -4,3 +4,8 @@
   border: 1px solid var(--button-emphasized-sap-button-emphasized-border-color, #0070F2);
   background: var(--button-emphasized-sap-button-emphasized-background, #0070F2);
 }
+
+.administrationPackageDialog {
+  width: 675px;
+  height: 261px;
+}
