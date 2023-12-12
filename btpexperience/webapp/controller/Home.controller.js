@@ -64,7 +64,7 @@ sap.ui.define([
                 const oModel = new JSONModel(sponsorsModel);
                 this.getView().setModel(oModel);
 
-                const oPackageModel = new JSONModel({ Nome: "Diamante", Preco: "10000,00", Convite: "15", GrupoMajoritario: "A", Stand: "Grande" });
+                const oPackageModel = new JSONModel({ Nome: "Diamante", Preco: "10000,00", Convite: "15", GrupoMajoritario: "Grupo A", Stand: "Grande" });
                 this.getView().setModel(oPackageModel, "packageFeatures");
             },
 
@@ -82,33 +82,24 @@ sap.ui.define([
                     oDialog.open();
                 });
             },
-            checkName: function () {
-                const name = this.getView().getModel("packageForm").getProperty("/Nome");
-    
-                if (name) {
-                    const formatedName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-                    this.getView().getModel("packageForm").setProperty("/Nome", formatedName);
-                }
-            },
-
+            
             onSendPackage: function () {
-                this.checkName();
                 const oData = this.getView().getModel("packageForm").getData();
                 const oModel = this.getView().getModel("packageFeatures");
-                const {Nome, Preco, Convite, GrupoMajoritario, Stand} = oData
+                const { Nome, Preco, Convite, GrupoMajoritario, Stand } = oData
 
-                
-                if(!Nome || !Convite || !Preco || !GrupoMajoritario || !Stand){
+
+                if (!Nome || !Convite || !Preco || !GrupoMajoritario || !Stand) {
                     return MessageToast.show("Preencha todos os campos obrigatórios!")
                 };
-                if(isNaN(Preco)){
+                if (isNaN(Preco)) {
                     return MessageToast.show(`O valor informado: ${Preco} precisa ser um número!`)
                 };
-                if(isNaN(Convite)){
+                if (isNaN(Convite)) {
                     return MessageToast.show(`O valor informado: ${Convite} precisa ser um número!`)
                 };
-                
-                oData.Preco = Number(oData.Preco).toFixed(2).replace(".",",");
+
+                oData.Preco = Number(oData.Preco).toFixed(2).replace(".", ",");
 
                 oModel.setData(oData);
 
