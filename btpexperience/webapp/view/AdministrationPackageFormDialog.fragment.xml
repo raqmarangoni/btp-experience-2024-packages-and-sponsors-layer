@@ -15,9 +15,9 @@
             <m:Select selectedKey="{packageForm>/GrupoMajoritario}">
               <m:items>
                 <core:Item text="Selecione o Grupo"/>
-                <core:Item key="A" text="A"/>
-                <core:Item key="B" text="B"/>
-                <core:Item key="C" text="C"/>
+                <core:Item key="A" text="Grupo A"/>
+                <core:Item key="B" text="Grupo B"/>
+                <core:Item key="C" text="Grupo C"/>
               </m:items>
             </m:Select>
             <m:Label id="idInputPreco" text="Preço" required="true" />
