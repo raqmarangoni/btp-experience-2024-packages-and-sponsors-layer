@@ -8,7 +8,7 @@
 	xmlns:t="sap.tnt"
 	xmlns="sap.ui.webc.main" height="100%">
 	<m:Page showHeader="false" enableScrolling="true">
-	<m:IconTabBar class="sapUiNoContentPadding" selectedKey="Administração" >
+		<m:IconTabBar class="sapUiNoContentPadding" selectedKey="Administração" >
 			<m:items>
 				<m:IconTabFilter key="info" text="Cadastro">
 					<m:items>
